@@ -295,6 +295,9 @@ class optimal_replacement_time:
         The restoration factor. Must be 0 or 1. Use q=1 for Power Law NHPP
         (as good as old) or q=0 for HPP (as good as new). Default is q=0 (as
         good as new).
+    unit_year: a factor that represents a year based on the given unit of time. For
+    example if the time unit is per hour then unit_year is 24*365
+    if the time unit is day then the unit_year is 365
     show_time_plot : bool, axes, optional
         If True the plot of replacment time vs cost per unit time will be
         produced in a new figure. If an axes subclass is passed then the plot
@@ -317,8 +320,10 @@ class optimal_replacement_time:
         The optimal replacement time
     min_cost : float
         The minimum cost per unit time
-    pr_ratio: float
+    optimal_reactive_ratio: float
       The ratio of optimal preventive costs  over reactive costs
+    yearly_optimal_ratio: float
+      The ratio of yearly preventive costs  optimal preventive costs
     """
 
     def __init__(
@@ -331,6 +336,7 @@ class optimal_replacement_time:
         show_ratio_plot=True,
         print_results=True,
         q=0,
+        unit_year=365 * 24,
         **kwargs
     ):
         if "color" in kwargs:
@@ -377,15 +383,23 @@ class optimal_replacement_time:
             idx = np.argmin(CPUT)
             min_cost = CPUT[idx]  # minimum cost per unit time
             ORT = t[idx]  # optimal replacement time
+
+            sf_y = vcalc_SF(unit_year)
+            integral_y = vintegrate_SF(unit_year)
+            yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
+            reactive_cost = CPUT[-1]
+
         else:
             raise ValueError(
                 'q must be 0 or 1. Default is 0. Use 0 for "as good as new" and use 1 for "as good as old".'
             )
         self.ORT = ORT
         self.min_cost = min_cost
-        self.pr_ratio=1
+        self.optimal_reactive_ratio=min_cost/reactive_cost
+        self.yearly_optimal_ratio=min_cost/yearly_cost
         min_cost_rounded = round_to_decimals(min_cost, 2)
         ORT_rounded = round_to_decimals(ORT, 2)
+
 
         if print_results is True:
             colorprint(
