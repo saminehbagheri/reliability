@@ -4,4 +4,6 @@ steps:
   with:
     python-version: '3.9'
     cache: 'pip'
-- run: pip install -r requirements.txt
+- run: | 
+pip install -r requirements.txt
+pip install pytest
