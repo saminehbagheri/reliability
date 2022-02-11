@@ -6,7 +6,7 @@ with open("README.md", "r") as file:
     long_description = file.read()
 
 setuptools.setup(
-    name="test_package",
+    name="reliabilityFork",
     version="0.9.0",
     description="Reliability Engineering toolkit for Python",
     author="Matthew Reid",
