@@ -15,7 +15,7 @@ from reliability_extension import Utils
 from reliability_extension import Convert_data
 from datetime import date
 
-__title__ = 'reliability_extensio '
+__title__ = 'reliability_extension'
 __version__ = "0.8.1"
 __description__ = 'A Python library for reliability engineering'
 __url__ = 'https://reliability.readthedocs.io/en/latest/index.html'
