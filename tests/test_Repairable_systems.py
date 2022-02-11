@@ -1,5 +1,5 @@
-from reliability.Datasets import MCF_1
-from reliability.Repairable_systems import reliability_growth, optimal_replacement_time, ROCOF, MCF_nonparametric, MCF_parametric
+from test_package.Datasets import MCF_1
+from test_package.Repairable_systems import reliability_growth, optimal_replacement_time, ROCOF, MCF_nonparametric, MCF_parametric
 from numpy.testing import assert_allclose
 atol = 1e-8
 rtol = 1e-7

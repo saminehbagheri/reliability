@@ -6,7 +6,7 @@ with open("README.md", "r") as file:
     long_description = file.read()
 
 setuptools.setup(
-    name="saminehspackage",
+    name="test_package",
     version="0.9.0",
     description="Reliability Engineering toolkit for Python",
     author="Matthew Reid",

@@ -1,4 +1,4 @@
-from reliability.Distributions import Normal_Distribution, Weibull_Distribution, Lognormal_Distribution, Exponential_Distribution, Gamma_Distribution, Beta_Distribution, Loglogistic_Distribution, Gumbel_Distribution, Competing_Risks_Model, Mixture_Model
+from test_package.Distributions import Normal_Distribution, Weibull_Distribution, Lognormal_Distribution, Exponential_Distribution, Gamma_Distribution, Beta_Distribution, Loglogistic_Distribution, Gumbel_Distribution, Competing_Risks_Model, Mixture_Model
 from numpy.testing import assert_allclose
 
 atol = 1e-8

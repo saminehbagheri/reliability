@@ -30,7 +30,7 @@ import numpy as np
 import pandas as pd
 import math
 import time
-from reliability.Distributions import (
+from test_package.Distributions import (
     Normal_Distribution,
     Weibull_Distribution,
     Lognormal_Distribution,
@@ -40,7 +40,7 @@ from reliability.Distributions import (
     Loglogistic_Distribution,
     Gumbel_Distribution,
 )
-from reliability.Utils import colorprint
+from test_package.Utils import colorprint
 
 pd.set_option("display.max_rows", 200)  # prevents ... compression of rows
 

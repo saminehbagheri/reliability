@@ -21,7 +21,7 @@ from scipy import integrate
 import pandas as pd
 import scipy.stats as ss
 from scipy.optimize import curve_fit
-from reliability.Utils import colorprint, round_to_decimals
+from test_package.Utils import colorprint, round_to_decimals
 from matplotlib.ticker import ScalarFormatter
 from matplotlib.axes import SubplotBase
 

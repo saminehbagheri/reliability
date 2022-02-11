@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt
 import autograd.numpy as anp
 from autograd.scipy.special import erf
 from autograd.differential_operators import hessian
-from reliability.Fitters import Fit_Weibull_2P, Fit_Lognormal_2P, Fit_Normal_2P
-from reliability.Distributions import (
+from test_package.Fitters import Fit_Weibull_2P, Fit_Lognormal_2P, Fit_Normal_2P
+from test_package.Distributions import (
     Weibull_Distribution,
     Lognormal_Distribution,
     Normal_Distribution,
     Exponential_Distribution,
 )
-from reliability.Utils import (
+from test_package.Utils import (
     colorprint,
     round_to_decimals,
     ALT_fitters_input_checking,
@@ -1726,7 +1726,7 @@ class Fit_Everything_ALT:
         return cols, rows, figsize
 
     def probability_plot(self, best_only=False):
-        from reliability.Utils import ALT_prob_plot
+        from test_package.Utils import ALT_prob_plot
 
         use_level_stress = self.__use_level_stress
         plt.figure()

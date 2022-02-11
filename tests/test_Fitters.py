@@ -1,6 +1,6 @@
-from reliability.Fitters import Fit_Weibull_2P, Fit_Weibull_3P, Fit_Gamma_2P, Fit_Gamma_3P, Fit_Lognormal_2P, Fit_Lognormal_3P, Fit_Loglogistic_2P, Fit_Loglogistic_3P, Fit_Normal_2P, Fit_Exponential_1P, Fit_Exponential_2P, Fit_Beta_2P, Fit_Gumbel_2P, Fit_Weibull_Mixture, Fit_Weibull_CR, Fit_Everything
-from reliability.Distributions import Weibull_Distribution, Gamma_Distribution, Lognormal_Distribution, Loglogistic_Distribution, Normal_Distribution, Exponential_Distribution, Beta_Distribution, Gumbel_Distribution, Mixture_Model, Competing_Risks_Model
-from reliability.Other_functions import make_right_censored_data
+from test_package.Fitters import Fit_Weibull_2P, Fit_Weibull_3P, Fit_Gamma_2P, Fit_Gamma_3P, Fit_Lognormal_2P, Fit_Lognormal_3P, Fit_Loglogistic_2P, Fit_Loglogistic_3P, Fit_Normal_2P, Fit_Exponential_1P, Fit_Exponential_2P, Fit_Beta_2P, Fit_Gumbel_2P, Fit_Weibull_Mixture, Fit_Weibull_CR, Fit_Everything
+from test_package.Distributions import Weibull_Distribution, Gamma_Distribution, Lognormal_Distribution, Loglogistic_Distribution, Normal_Distribution, Exponential_Distribution, Beta_Distribution, Gumbel_Distribution, Mixture_Model, Competing_Risks_Model
+from test_package.Other_functions import make_right_censored_data
 from numpy.testing import assert_allclose
 import warnings
 

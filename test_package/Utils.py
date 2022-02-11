@@ -4694,7 +4694,7 @@ def least_squares(dist, failures, right_censored, method="RRX", force_shape=None
     if method not in ["RRX", "RRY"]:
         raise ValueError('method must be either "RRX" or "RRY". Default is RRX.')
 
-    from reliability.Probability_plotting import (
+    from test_package.Probability_plotting import (
         plotting_positions,
     )  # this import needs to be here to prevent circular import if it is in the main module
 
@@ -6477,28 +6477,28 @@ def ALT_prob_plot(
         else:
             plt.figure()  # if no axes is passed, make a new figure
 
-        from reliability.Probability_plotting import plotting_positions
+        from test_package.Probability_plotting import plotting_positions
 
         if dist == "Weibull":
-            from reliability.Probability_plotting import (
+            from test_package.Probability_plotting import (
                 Weibull_probability_plot as probplot,
             )
-            from reliability.Distributions import Weibull_Distribution as Distribution
+            from test_package.Distributions import Weibull_Distribution as Distribution
         elif dist == "Lognormal":
-            from reliability.Probability_plotting import (
+            from test_package.Probability_plotting import (
                 Lognormal_probability_plot as probplot,
             )
-            from reliability.Distributions import Lognormal_Distribution as Distribution
+            from test_package.Distributions import Lognormal_Distribution as Distribution
         elif dist == "Normal":
-            from reliability.Probability_plotting import (
+            from test_package.Probability_plotting import (
                 Normal_probability_plot as probplot,
             )
-            from reliability.Distributions import Normal_Distribution as Distribution
+            from test_package.Distributions import Normal_Distribution as Distribution
         elif dist == "Exponential":
-            from reliability.Probability_plotting import (
+            from test_package.Probability_plotting import (
                 Exponential_probability_plot_Weibull_Scale as probplot,
             )
-            from reliability.Distributions import (
+            from test_package.Distributions import (
                 Exponential_Distribution as Distribution,
             )
         else:
