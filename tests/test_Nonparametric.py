@@ -1,5 +1,5 @@
-from test_package.Datasets import automotive
-from test_package.Nonparametric import KaplanMeier, NelsonAalen, RankAdjustment
+from reliability_extension.Datasets import automotive
+from reliability_extension.Nonparametric import KaplanMeier, NelsonAalen, RankAdjustment
 
 failures = automotive().failures
 right_censored = automotive().right_censored

@@ -26,7 +26,7 @@ import numpy as np
 from matplotlib.lines import Line2D
 from mplcursors import cursor
 import warnings
-from test_package.Distributions import (
+from reliability_extension.Distributions import (
     Weibull_Distribution,
     Normal_Distribution,
     Lognormal_Distribution,
@@ -36,8 +36,8 @@ from test_package.Distributions import (
     Loglogistic_Distribution,
     Gumbel_Distribution,
 )
-from test_package.Fitters import Fit_Everything
-from test_package.Utils import colorprint, round_to_decimals
+from reliability_extension.Fitters import Fit_Everything
+from reliability_extension.Utils import colorprint, round_to_decimals
 from matplotlib.widgets import Slider, RadioButtons
 import scipy.stats as ss
 import time

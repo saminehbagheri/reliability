@@ -1,4 +1,4 @@
-from test_package.ALT_fitters import (
+from reliability_extension.ALT_fitters import (
     Fit_Weibull_Exponential,
     Fit_Weibull_Eyring,
     Fit_Weibull_Power,
@@ -25,7 +25,7 @@ from test_package.ALT_fitters import (
     Fit_Exponential_Dual_Power,
     Fit_Everything_ALT,
 )
-from test_package.Other_functions import make_ALT_data
+from reliability_extension.Other_functions import make_ALT_data
 from numpy.testing import assert_allclose
 import warnings
 

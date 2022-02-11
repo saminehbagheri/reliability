@@ -33,7 +33,7 @@ X as this is the same as F from FR format.
 
 import numpy as np
 import pandas as pd
-from test_package.Utils import colorprint, write_df_to_xlsx, removeNaNs
+from reliability_extension.Utils import colorprint, write_df_to_xlsx, removeNaNs
 
 
 class xlsx_to_XCN:

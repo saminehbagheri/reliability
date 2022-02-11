@@ -46,7 +46,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.optimize import minimize
 import scipy.stats as ss
-from test_package.Distributions import (
+from reliability_extension.Distributions import (
     Weibull_Distribution,
     Gamma_Distribution,
     Beta_Distribution,
@@ -59,9 +59,9 @@ from test_package.Distributions import (
     Competing_Risks_Model,
     DSZI_Model,
 )
-from test_package.Nonparametric import KaplanMeier
-from test_package.Probability_plotting import plotting_positions
-from test_package.Utils import (
+from reliability_extension.Nonparametric import KaplanMeier
+from reliability_extension.Probability_plotting import plotting_positions
+from reliability_extension.Utils import (
     round_to_decimals,
     anderson_darling,
     fitters_input_checking,
@@ -1671,7 +1671,7 @@ class Fit_Everything:
         """
         Generates a subplot of all the probability plots
         """
-        from test_package.Probability_plotting import (
+        from reliability_extension.Probability_plotting import (
             Weibull_probability_plot,
             Normal_probability_plot,
             Gamma_probability_plot,
@@ -2238,7 +2238,7 @@ class Fit_Weibull_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -2918,7 +2918,7 @@ class Fit_Weibull_2P_grouped:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -3353,7 +3353,7 @@ class Fit_Weibull_3P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -3841,7 +3841,7 @@ class Fit_Weibull_Mixture:
             print(self.goodness_of_fit.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -4276,7 +4276,7 @@ class Fit_Weibull_CR:
             print(self.goodness_of_fit.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -4646,7 +4646,7 @@ class Fit_Weibull_DSZI:
             print(self.goodness_of_fit.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import (
+            from reliability_extension.Probability_plotting import (
                 Weibull_probability_plot,
                 plot_points,
             )
@@ -4989,7 +4989,7 @@ class Fit_Weibull_DS:
             print(self.goodness_of_fit.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Weibull_probability_plot
+            from reliability_extension.Probability_plotting import Weibull_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -5316,7 +5316,7 @@ class Fit_Weibull_ZI:
             print(self.goodness_of_fit.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import (
+            from reliability_extension.Probability_plotting import (
                 Weibull_probability_plot,
                 plot_points,
             )
@@ -5705,7 +5705,7 @@ class Fit_Exponential_1P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import (
+            from reliability_extension.Probability_plotting import (
                 Exponential_probability_plot_Weibull_Scale,
             )
 
@@ -6097,7 +6097,7 @@ class Fit_Exponential_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import (
+            from reliability_extension.Probability_plotting import (
                 Exponential_probability_plot_Weibull_Scale,
             )
 
@@ -6532,7 +6532,7 @@ class Fit_Normal_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Normal_probability_plot
+            from reliability_extension.Probability_plotting import Normal_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -6908,7 +6908,7 @@ class Fit_Gumbel_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Gumbel_probability_plot
+            from reliability_extension.Probability_plotting import Gumbel_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -7327,7 +7327,7 @@ class Fit_Lognormal_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Lognormal_probability_plot
+            from reliability_extension.Probability_plotting import Lognormal_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -7767,7 +7767,7 @@ class Fit_Lognormal_3P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Lognormal_probability_plot
+            from reliability_extension.Probability_plotting import Lognormal_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -8185,7 +8185,7 @@ class Fit_Gamma_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Gamma_probability_plot
+            from reliability_extension.Probability_plotting import Gamma_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -8681,7 +8681,7 @@ class Fit_Gamma_3P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Gamma_probability_plot
+            from reliability_extension.Probability_plotting import Gamma_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -9054,7 +9054,7 @@ class Fit_Beta_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Beta_probability_plot
+            from reliability_extension.Probability_plotting import Beta_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -9414,7 +9414,7 @@ class Fit_Loglogistic_2P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Loglogistic_probability_plot
+            from reliability_extension.Probability_plotting import Loglogistic_probability_plot
 
             if len(right_censored) == 0:
                 rc = None
@@ -9843,7 +9843,7 @@ class Fit_Loglogistic_3P:
                 print(self.quantiles.to_string(index=False), "\n")
 
         if show_probability_plot is True:
-            from test_package.Probability_plotting import Loglogistic_probability_plot
+            from reliability_extension.Probability_plotting import Loglogistic_probability_plot
 
             if len(right_censored) == 0:
                 rc = None

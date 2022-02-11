@@ -1,5 +1,5 @@
-from test_package.Distributions import Weibull_Distribution, Lognormal_Distribution, Normal_Distribution
-from test_package.Other_functions import stress_strength, stress_strength_normal, similar_distributions, make_right_censored_data, crosshairs, distribution_explorer, histogram
+from reliability_extension.Distributions import Weibull_Distribution, Lognormal_Distribution, Normal_Distribution
+from reliability_extension.Other_functions import stress_strength, stress_strength_normal, similar_distributions, make_right_censored_data, crosshairs, distribution_explorer, histogram
 from numpy.testing import assert_allclose
 import matplotlib.pyplot as plt
 import warnings

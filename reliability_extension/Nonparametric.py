@@ -18,7 +18,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as ss
-from test_package.Utils import colorprint
+from reliability_extension.Utils import colorprint
 
 pd.set_option("display.width", 200)  # prevents wrapping after default 80 characters
 pd.set_option("display.max_columns", 9)  # shows the dataframe without ... truncation
@@ -806,7 +806,7 @@ class RankAdjustment:
         remaining_array = failures_array[::-1]  # items remaining (n to 1)
 
         # obtain the rank adjustment estimates
-        from test_package.Probability_plotting import (
+        from reliability_extension.Probability_plotting import (
             plotting_positions,
         )  # can't have this at the start of the function because of circular import
 

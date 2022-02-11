@@ -20,7 +20,7 @@ import numpy as np
 import warnings
 import scipy.stats as ss
 from scipy.optimize import fsolve
-from test_package.Utils import colorprint
+from reliability_extension.Utils import colorprint
 
 
 def SN_diagram(

@@ -35,7 +35,7 @@ import scipy.stats as ss
 import numpy as np
 from scipy import integrate
 import matplotlib.pyplot as plt
-from test_package.Utils import (
+from reliability_extension.Utils import (
     round_to_decimals,
     get_axes_limits,
     restore_axes_limits,

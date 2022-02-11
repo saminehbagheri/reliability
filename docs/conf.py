@@ -26,8 +26,8 @@ copyright = "2019-{},  Matthew Reid".format(date.today().year)
 author = 'Matthew Reid'
 
 # The full version, including alpha/beta/rc tags
-import test_package
-version = test_package.__version__
+import reliability_extension
+version = reliability_extension.__version__
 release = version
 
 # -- General configuration ---------------------------------------------------
