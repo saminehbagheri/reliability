@@ -317,6 +317,8 @@ class optimal_replacement_time:
         The optimal replacement time
     min_cost : float
         The minimum cost per unit time
+    pr_ratio: float
+      The ratio of optimal preventive costs  over reactive costs
     """
 
     def __init__(
