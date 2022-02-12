@@ -29,13 +29,15 @@ def test_reliability_growth_crow_amsaa():
     assert_allclose(rg_crow.time_to_target,1503979.9172547427,rtol=rtol,atol=atol)
 
 
-def test_optimal_replacement_time():
-    ort0 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000, weibull_beta=2.5, q=0)
-    assert_allclose(ort0.ORT,493.1851185118512,rtol=rtol,atol=atol)
-    assert_allclose(ort0.min_cost, 0.0034620429189943167, rtol=rtol, atol=atol)
-    ort1 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000, weibull_beta=2.5, q=1)
-    assert_allclose(ort1.ORT,1618.644582767346,rtol=rtol,atol=atol)
-    assert_allclose(ort1.min_cost, 0.0051483404213951, rtol=rtol, atol=atol)
+#def test_optimal_replacement_time():
+#    ort0 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
+    #    weibull_beta=2.5, q=0)
+#    assert_allclose(ort0.ORT,493.1851185118512,rtol=rtol,atol=atol)
+#    assert_allclose(ort0.min_cost, 0.0034620429189943167, rtol=rtol, atol=atol)
+#    ort1 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
+    #    weibull_beta=2.5, q=1)
+#    assert_allclose(ort1.ORT,1618.644582767346,rtol=rtol,atol=atol)
+#    assert_allclose(ort1.min_cost, 0.0051483404213951, rtol=rtol, atol=atol)
 
 
 def test_ROCOF():
