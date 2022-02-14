@@ -363,6 +363,12 @@ class optimal_replacement_time:
             min_cost = (
                 (cost_PM * (ORT / weibull_alpha) ** weibull_beta) + cost_CM
             ) / ORT
+
+            yearly_cost = CPUT[unit_year]
+            reactive_cost = CPUT[-1]
+            # todo: implement  the preventive cost per unit time for the q=1 case
+            PPUT=  [None]*len(t)
+            RPUT= [None]*len(t)
         elif q == 0:  # as good as new
             alpha_multiple = 3
             t = np.linspace(1, weibull_alpha * alpha_multiple, 10000)
