@@ -323,7 +323,7 @@ class optimal_replacement_time:
     optimal_reactive_ratio: float
       The ratio of optimal preventive costs  over reactive costs
     yearly_optimal_ratio: float
-      The ratio of yearly preventive costs  optimal preventive costs
+      The ratio of optimal preventive costs over yearly preventive costs
     """
 
     def __init__(
