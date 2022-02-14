@@ -364,11 +364,11 @@ class optimal_replacement_time:
                 (cost_PM * (ORT / weibull_alpha) ** weibull_beta) + cost_CM
             ) / ORT
 
-            idx = np.argmin(np.abs(t - unit_year))
-            if len(idx)>1:
-                idx=ixd[0]
-            yearly_cost = CPUT[idx]
             reactive_cost = CPUT[-1]
+            idx = np.argmin(np.abs(t - unit_year))
+            if isinstance(idx, np.ndarray):
+                idx=idx[0]
+            yearly_cost = CPUT[idx]
             # todo: implement  the preventive cost per unit time for the q=1 case
             PPUT=  [None]*len(t)
             RPUT= [None]*len(t)
@@ -395,13 +395,10 @@ class optimal_replacement_time:
             min_cost = CPUT[idx]  # minimum cost per unit time
             ORT = t[idx]  # optimal replacement time
 
+            sf_y = vcalc_SF(unit_year)
+            integral_y = vintegrate_SF(unit_year)
+            yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
             reactive_cost = CPUT[-1]
-            if unit_year<= max(t):
-                sf_y = vcalc_SF(unit_year)
-                integral_y = vintegrate_SF(unit_year)
-                yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
-            else:
-                yearly_cost=reactive_cost
 
         else:
             raise ValueError(
@@ -440,9 +437,10 @@ class optimal_replacement_time:
                 plt.figure()  # if no axes is passed, make a new figure
             plt.plot(t, CPUT, color=c, label='reliability centered '
                                                         'maintenance', **kwargs)
-            plt.plot(t, PPUT, color='r', label='preventive maintenace',**kwargs)
+            plt.plot(t, PPUT, color='r', label='preventive maintenance',**kwargs)
             plt.plot(t, RPUT, color='g', label='reactive maintenance', **kwargs)
             plt.plot(ORT, min_cost, "o", color=c)
+            plt.plot(unit_year, yearly_cost, "o", color='k')
             plt.legend(loc='upper right', bbox_to_anchor=(0.5, +0.08),
           fancybox=True, shadow=True, ncol=1)
 

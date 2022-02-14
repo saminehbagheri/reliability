@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 from numpy.testing import assert_allclose
 
 ORT=optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
-                             weibull_beta=2.5,q=0,unit_year=365000)
+                             weibull_beta=2.5,q=0,unit_year=365)
 print(ORT.optimal_reactive_ratio)
 print(ORT.yearly_optimal_ratio)
 print(ORT.ORT)
 
 
 
-plt.show()
+#plt.show()
 
 atol = 1e-8
 rtol = 1e-7
