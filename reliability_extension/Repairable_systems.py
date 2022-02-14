@@ -364,7 +364,10 @@ class optimal_replacement_time:
                 (cost_PM * (ORT / weibull_alpha) ** weibull_beta) + cost_CM
             ) / ORT
 
-            yearly_cost = CPUT[unit_year]
+            idx = np.argmin(np.abs(t - unit_year))
+            if len(idx)>1:
+                idx=ixd[0]
+            yearly_cost = CPUT[idx]
             reactive_cost = CPUT[-1]
             # todo: implement  the preventive cost per unit time for the q=1 case
             PPUT=  [None]*len(t)
@@ -386,16 +389,19 @@ class optimal_replacement_time:
             integral = vintegrate_SF(t)
 
             CPUT = (cost_PM * sf + cost_CM * (1 - sf)) / integral
-            PPUT=  cost_CM * (1 - sf) / integral
-            RPUT= (cost_PM * sf ) / integral
+            RPUT=  cost_CM * (1 - sf) / integral
+            PPUT= (cost_PM * sf ) / integral
             idx = np.argmin(CPUT)
             min_cost = CPUT[idx]  # minimum cost per unit time
             ORT = t[idx]  # optimal replacement time
 
-            sf_y = vcalc_SF(unit_year)
-            integral_y = vintegrate_SF(unit_year)
-            yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
             reactive_cost = CPUT[-1]
+            if unit_year<= max(t):
+                sf_y = vcalc_SF(unit_year)
+                integral_y = vintegrate_SF(unit_year)
+                yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
+            else:
+                yearly_cost=reactive_cost
 
         else:
             raise ValueError(
