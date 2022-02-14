@@ -380,6 +380,8 @@ class optimal_replacement_time:
             integral = vintegrate_SF(t)
 
             CPUT = (cost_PM * sf + cost_CM * (1 - sf)) / integral
+            PPUT=  cost_CM * (1 - sf) / integral
+            RPUT= (cost_PM * sf ) / integral
             idx = np.argmin(CPUT)
             min_cost = CPUT[idx]  # minimum cost per unit time
             ORT = t[idx]  # optimal replacement time
@@ -424,8 +426,14 @@ class optimal_replacement_time:
                 plt.sca(ax=show_time_plot)  # use the axes passed
             else:
                 plt.figure()  # if no axes is passed, make a new figure
-            plt.plot(t, CPUT, color=c, **kwargs)
+            plt.plot(t, CPUT, color=c, label='reliability centered '
+                                                        'maintenance', **kwargs)
+            plt.plot(t, PPUT, color='r', label='preventive maintenace',**kwargs)
+            plt.plot(t, RPUT, color='g', label='reactive maintenance', **kwargs)
             plt.plot(ORT, min_cost, "o", color=c)
+            plt.legend(loc='upper right', bbox_to_anchor=(0.5, +0.08),
+          fancybox=True, shadow=True, ncol=1)
+
             text_str = str(
                 "\nMinimum cost per unit time is "
                 + str(min_cost_rounded)
