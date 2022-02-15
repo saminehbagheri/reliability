@@ -499,20 +499,20 @@ class optimal_replacement_time:
             else:
                 va = "bottom"
                 mult = 1.05
-            plt.text(
-                s=str(
-                    "$cost_{CM} = $"
-                    + str(cost_CM)
-                    + "\n$cost_{PM} = $"
-                    + str(cost_PM)
-                    + "\nInterval = "
-                    + str(round_to_decimals(self.ORT, 2))
-                ),
-                x=cost_CM / cost_PM * 1.05,
-                y=self.ORT * mult,
-                ha="left",
-                va=va,
-            )
+            if show_text_on_plot:
+                plt.text(
+                    s=str(
+                        "$cost_{CM} = $"
+                        + str(cost_CM)
+                        + "\n$cost_{PM} = $"
+                        + str(cost_PM)
+                        + "\nInterval = "
+                        + str(round_to_decimals(self.ORT, 2))
+                    ),
+                    x=cost_CM / cost_PM * 1.05,
+                    y=self.ORT * mult,
+                    ha="left",
+                    va=va, )
             plt.xlabel(r"Cost ratio $\left(\frac{CM}{PM}\right)$")
             plt.ylabel("Replacement Interval")
             plt.title("Optimal replacement interval\nacross a range of CM costs")
