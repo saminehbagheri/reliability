@@ -308,6 +308,7 @@ class optimal_replacement_time:
         produced in a new figure. If an axes subclass is passed then the plot
         be generated in that axes. If False then no plot will be generated.
         Default is True.
+    show_legend: bool
     print_results : bool, optional
         If True the results will be printed to console. Default = True.
     kwargs
@@ -335,6 +336,7 @@ class optimal_replacement_time:
         show_time_plot=True,
         show_ratio_plot=True,
         print_results=True,
+        show_legend=True,
         q=0,
         unit_year=365 * 24,
         **kwargs
@@ -441,7 +443,8 @@ class optimal_replacement_time:
             plt.plot(t, RPUT, color='g', label='reactive maintenance', **kwargs)
             plt.plot(ORT, min_cost, "o", color=c)
             plt.plot(unit_year, yearly_cost, "o", color='k')
-            plt.legend(loc='upper right', bbox_to_anchor=(0.5, +0.08),
+            if show_legend:
+                plt.legend(loc='upper right', bbox_to_anchor=(0.5, +0.08),
           fancybox=True, shadow=True, ncol=1)
 
             text_str = str(
