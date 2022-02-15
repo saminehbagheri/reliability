@@ -438,14 +438,18 @@ class optimal_replacement_time:
                 plt.sca(ax=show_time_plot)  # use the axes passed
             else:
                 plt.figure()  # if no axes is passed, make a new figure
-            plt.plot(t, CPUT, color=c, label='reliability centered '
-                                                        'maintenance', **kwargs)
-            plt.plot(t, PPUT, color='r', label='preventive maintenance',**kwargs)
-            plt.plot(t, RPUT, color='g', label='reactive maintenance', **kwargs)
-            plt.plot(ORT, min_cost, "o", color=c)
+            plt.plot(t, CPUT, color=c, label='reliability centered maintenance',
+                     linewidth=4, **kwargs)
+            plt.plot(t, PPUT, color='r', alpha=0.7,linestyle='dashed',
+                     label='preventive maintenance',
+                     **kwargs)
+            plt.plot(t, RPUT, color='g', alpha=0.7,linestyle='dashed',
+                     label='reactive maintenance',
+            **kwargs)
+            plt.plot(ORT, min_cost, "o", color=c,markersize=10)
             plt.plot(unit_year, yearly_cost, "o", color='k')
             if show_legend:
-                plt.legend(loc='upper right', bbox_to_anchor=(0.5, +0.08),
+                plt.legend(loc='upper left', bbox_to_anchor=(0.5, +0.08),
           fancybox=True, shadow=True, ncol=1)
 
             text_str = str(
