@@ -337,6 +337,7 @@ class optimal_replacement_time:
         show_ratio_plot=True,
         print_results=True,
         show_legend=True,
+        show_text_on_plot=True,
         q=0,
         unit_year=365 * 24,
         **kwargs
@@ -453,7 +454,8 @@ class optimal_replacement_time:
                 + "\nOptimal replacement time is "
                 + str(ORT_rounded)
             )
-            plt.text(ORT, min_cost, text_str, va="top")
+            if show_text_on_plot:
+                plt.text(ORT, min_cost, text_str, va="top")
             plt.xlabel("Replacement time")
             plt.ylabel("Cost per unit time")
             plt.title("Optimal replacement time estimation")
