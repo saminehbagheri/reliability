@@ -747,6 +747,9 @@ class Weibull_Distribution:
             limits = get_axes_limits()  # get the previous axes limits
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o', c='r')
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -1254,6 +1257,9 @@ class Normal_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -1662,6 +1668,12 @@ class Normal_Distribution:
             limits = get_axes_limits()  # get the previous axes limits
 
             plt.plot(X, hf, **kwargs)
+
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            print(idx,max_hf)
+            plt.plot(X[idx],max_hf,'o',c='r')
+
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -2165,6 +2177,9 @@ class Lognormal_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         plt.title("Hazard Function")
         restore_axes_limits(
             [(0, 1), (0, 1), False],
@@ -2577,6 +2592,9 @@ class Lognormal_Distribution:
             limits = get_axes_limits()  # get the previous axes limits
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o', c='r')
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -3075,6 +3093,10 @@ class Exponential_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
+
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -3492,6 +3514,9 @@ class Exponential_Distribution:
             limits = get_axes_limits()
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o', c='r')
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -4028,6 +4053,9 @@ class Gamma_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -4905,6 +4933,9 @@ class Beta_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -5213,6 +5244,9 @@ class Beta_Distribution:
             limits = get_axes_limits()
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o', c='r')
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -5712,6 +5746,9 @@ class Loglogistic_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -6158,6 +6195,9 @@ class Loglogistic_Distribution:
             limits = get_axes_limits()  # get the previous axes limits
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o', c='r')
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(
@@ -6653,6 +6693,9 @@ class Gumbel_Distribution:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self,
@@ -7502,7 +7545,7 @@ class Competing_Risks_Model:
         """
         distributions = self.distributions
 
-        # obtain the X values
+        # obtain the x values
         if xvals is not None:
             X = xvals
         else:
@@ -8454,7 +8497,7 @@ class Mixture_Model:
         distributions = self.distributions
         proportions = self.proportions
 
-        # obtain the X values
+        # obtain the x values
         if xvals is not None:
             X = xvals
         else:
@@ -9447,6 +9490,9 @@ class DSZI_Model:
 
         plt.subplot(234)
         plt.plot(X, hf)
+        idx = np.argmax(hf)
+        max_hf = hf[idx]
+        plt.plot(X[idx], max_hf, 'o', c='r')
         restore_axes_limits(
             [(0, 1), (0, 1), False],
             dist=self.__base_distribution,
@@ -9728,7 +9774,8 @@ class DSZI_Model:
 
         return sf
 
-    def HF(self, xvals=None, xmin=None, xmax=None, show_plot=True, **kwargs):
+    def HF(self, xvals=None, xmin=None, xmax=None, show_plot=True, input_type=None,
+    **kwargs):
         """
         Plots the HF (hazard function)
 
@@ -9784,6 +9831,25 @@ class DSZI_Model:
             limits = get_axes_limits()  # get the previous axes limits
 
             plt.plot(X, hf, **kwargs)
+            idx = np.argmax(hf)
+            max_hf = hf[idx]
+            plt.plot(X[idx], max_hf, 'o',c='r')
+            plt.vlines(X[idx], ymin=0,ymax=max_hf, color='r',linestyle='dashed')
+            if input_type is None:
+                txt=f"""Highest PoF:{round(X[idx],1)}  t2f unit"""
+                TEXT=[txt]
+            if input_type=='repair':
+                txt = f"""Highest PoF:{round(X[idx]/365, 1)}  years"""
+                TEXT = [txt]
+            if input_type=='runtime':
+
+                txt1=f"""Highest PoF:{round(X[idx]/(20*365),1)}  years 
+for highly used machines"""
+                txt2=f"""Highest PoF: {round(X[idx]/(365*10),1)}  years 
+for moderately used machines"""
+                TEXT=[txt1,txt2]
+            for i,txt in enumerate(TEXT):
+                plt.text(X[idx]+10, max_hf/(2+i), txt)
             plt.xlabel("x values")
             plt.ylabel("Hazard")
             text_title = str(self.__model_title + "\n" + "Hazard Function")
