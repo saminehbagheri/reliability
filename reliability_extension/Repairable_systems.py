@@ -295,9 +295,6 @@ class optimal_replacement_time:
         The restoration factor. Must be 0 or 1. Use q=1 for Power Law NHPP
         (as good as old) or q=0 for HPP (as good as new). Default is q=0 (as
         good as new).
-    unit_year: a factor that represents a year based on the given unit of time. For
-    example if the time unit is per hour then unit_year is 24*365
-    if the time unit is day then the unit_year is 365
     show_time_plot : bool, axes, optional
         If True the plot of replacment time vs cost per unit time will be
         produced in a new figure. If an axes subclass is passed then the plot
@@ -340,7 +337,7 @@ class optimal_replacement_time:
         show_text_on_plot=True,
         plot_pr=False,
         q=0,
-        unit_year=365 * 24,
+        #unit_year=365 * 24,
         **kwargs
     ):
         if "color" in kwargs:
@@ -369,10 +366,10 @@ class optimal_replacement_time:
             ) / ORT
 
             reactive_cost = CPUT[-1]
-            idx = np.argmin(np.abs(t - unit_year))
-            if isinstance(idx, np.ndarray):
-                idx=idx[0]
-            yearly_cost = CPUT[idx]
+            #idx = np.argmin(np.abs(t - unit_year))
+            #if isinstance(idx, np.ndarray):
+            #    idx=idx[0]
+            #yearly_cost = CPUT[idx]
             # todo: implement  the preventive cost per unit time for the q=1 case
             PPUT=  [None]*len(t)
             RPUT= [None]*len(t)
@@ -399,9 +396,9 @@ class optimal_replacement_time:
             min_cost = CPUT[idx]  # minimum cost per unit time
             ORT = t[idx]  # optimal replacement time
 
-            sf_y = vcalc_SF(unit_year)
-            integral_y = vintegrate_SF(unit_year)
-            yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
+            #sf_y = vcalc_SF(unit_year)
+            #integral_y = vintegrate_SF(unit_year)
+            #yearly_cost = (cost_PM * sf_y + cost_CM * (1 - sf_y)) / integral_y
             reactive_cost = CPUT[-1]
 
         else:
@@ -411,7 +408,7 @@ class optimal_replacement_time:
         self.ORT = ORT
         self.min_cost = min_cost
         self.optimal_reactive_ratio=min_cost/reactive_cost
-        self.yearly_optimal_ratio=min_cost/yearly_cost
+        #self.yearly_optimal_ratio=min_cost/yearly_cost
         min_cost_rounded = round_to_decimals(min_cost, 2)
         ORT_rounded = round_to_decimals(ORT, 2)
 
@@ -447,7 +444,7 @@ class optimal_replacement_time:
                 plt.plot(t, RPUT, color='g', alpha=0.3,linestyle='dashed',
                      label='reactive maintenance',**kwargs)
             plt.plot(ORT, min_cost, "o", color=c,markersize=8)
-            plt.plot(unit_year, yearly_cost, "o", color='k')
+            #plt.plot(unit_year, yearly_cost, "o", color='k')
             if show_legend:
                 plt.legend(loc='upper left', bbox_to_anchor=(0.5, +0.08),
           fancybox=True, shadow=True, ncol=1)

@@ -1,25 +1,24 @@
 from reliability_extension.Repairable_systems import optimal_replacement_time
+from reliability_extension.Distributions import Normal_Distribution, Weibull_Distribution, Lognormal_Distribution, Exponential_Distribution, Gamma_Distribution, Beta_Distribution, Loglogistic_Distribution, Gumbel_Distribution, Competing_Risks_Model, Mixture_Model
 import matplotlib.pyplot as plt
 from numpy.testing import assert_allclose
 
-ORT=optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
-                             weibull_beta=2.5,q=0,unit_year=365)
-print(ORT.optimal_reactive_ratio)
-print(ORT.yearly_optimal_ratio)
-print(ORT.ORT)
+
+from reliability_extension.Fitters import Fit_Weibull_DS
 
 
+f = [520, 740, 100, 17, 730, 764, 784, 760, 780, 779, 657, 765,500,600,459,800,]*10
+rc = [3961, 4007, 4734, 6054, 7298, 10190, 23060, 27160, 28690, 37100, 40060, 45670,
+      53000, 67000, 69630, 77350, 78470, 91680, 105700, 106300, 150400]*20
+model_res=Fit_Weibull_DS(failures=f, right_censored=rc,show_probability_plot=False,
+                            print_results=False)
+model_res.distribution.HF(show_plot=True,input_type='runtime')
+#model_res.distribution.HF(show_plot=True)
+print(model_res.distribution)
+print(model_res.distribution.name)
 
 plt.show()
 
-atol = 1e-8
-rtol = 1e-7
-ort0 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
-        weibull_beta=2.5, q=0)
-assert_allclose(ort0.ORT,493.1851185118512,rtol=rtol,atol=atol)
-assert_allclose(ort0.min_cost, 0.0034620429189943167, rtol=rtol, atol=atol)
-ort1 = optimal_replacement_time(cost_PM=1, cost_CM=5, weibull_alpha=1000,
-        weibull_beta=2.5, q=1)
-assert_allclose(ort1.ORT,1618.644582767346,rtol=rtol,atol=atol)
-assert_allclose(ort1.min_cost, 0.0051483404213951, rtol=rtol, atol=atol)
+
+
 
